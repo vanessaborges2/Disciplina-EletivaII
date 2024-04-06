@@ -41,6 +41,13 @@ $r->post('/exer4/resposta', function(){
     return $resposta;
 });
 
+//Chamando o formulário para inserir categoria
+$r->get('/categoria/inserir',
+    'Php\Primeiroprojeto\Controllers\CategoriaController@inserir');
+
+$r->post('/categoria/novo',
+    'Php\Primeiroprojeto\Controllers\CategoriaController@novo');
+
 #ROTAS
 
 $resultado = $r->handler();
