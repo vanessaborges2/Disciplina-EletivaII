@@ -48,6 +48,9 @@ $r->get('/categoria/inserir',
 $r->post('/categoria/novo',
     'Php\Primeiroprojeto\Controllers\CategoriaController@novo');
 
+$r->get('/categoria', 
+    'Php\Primeiroprojeto\Controllers\CategoriaController@index');
+
 #ROTAS
 
 $resultado = $r->handler();
