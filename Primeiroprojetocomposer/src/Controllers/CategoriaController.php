@@ -10,16 +10,14 @@ class CategoriaController{
     public function index($params){
         $categoriaDAO = new CategoriaDAO();
         $resultado = $categoriaDAO->consultarTodos();
-        if (isset($_GET['inserir'])){
-            $inserir = $_GET['inserir'];
-            if ($inserir == "true"){
-                $inserir_sucesso="";
-                $inserir_erro="hidden";
-            } else if ($inserir == "false"){
-                $inserir_erro="";
-                $inserir_sucesso="hidden";
-            }
-        }
+        $acao = $params[1] ?? "";
+        $status = $params[2] ?? "";
+        if($acao == "inserir" && $status == "true")
+            $mensagem = "Registro inserido com sucesso!";
+        elseif($acao == "inserir" && $status == "false")
+            $mensagem = "Erro ao inserir!";
+        else 
+            $mensagem = "";
         require_once("../src/Views/categoria/categoria.php");
     }
     
@@ -31,9 +29,9 @@ class CategoriaController{
         $categoria = new Categoria(0, $_POST['descricao']);
         $categoriaDAO = new CategoriaDAO();
         if ($categoriaDAO->inserir($categoria)){
-            header("location: /categoria?inserir=true");
+            header("location: /categoria/inserir/true");
         } else {
-            header("location: /categoria?inserir=false");
+            header("location: /categoria/inserir/false");
         }
     }
 

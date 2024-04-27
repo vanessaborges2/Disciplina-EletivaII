@@ -51,6 +51,9 @@ $r->post('/categoria/novo',
 $r->get('/categoria', 
     'Php\Primeiroprojeto\Controllers\CategoriaController@index');
 
+$r->get('/categoria/{acao}/{status}', 
+    'Php\Primeiroprojeto\Controllers\CategoriaController@index');
+
 #ROTAS
 
 $resultado = $r->handler();
