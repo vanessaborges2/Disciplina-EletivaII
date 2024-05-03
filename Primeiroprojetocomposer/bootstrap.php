@@ -54,6 +54,18 @@ $r->get('/categoria',
 $r->get('/categoria/{acao}/{status}', 
     'Php\Primeiroprojeto\Controllers\CategoriaController@index');
 
+$r->get('/categoria/alterar/id/{id}',
+    'Php\Primeiroprojeto\Controllers\CategoriaController@alterar');
+
+$r->get('/categoria/excluir/id/{id}',
+    'Php\Primeiroprojeto\Controllers\CategoriaController@excluir');
+
+$r->post('/categoria/editar',
+    'Php\Primeiroprojeto\Controllers\CategoriaController@editar');
+
+$r->post('/categoria/deletar',
+    'Php\Primeiroprojeto\Controllers\CategoriaController@deletar');
+
 #ROTAS
 
 $resultado = $r->handler();

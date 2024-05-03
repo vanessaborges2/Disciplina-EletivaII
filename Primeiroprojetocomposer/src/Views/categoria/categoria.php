@@ -27,10 +27,10 @@
                         <tr>
                             <td><?= $c['descricao'] ?></td>
                             <td>
-                                <a href="#" class="btn btn-warning">
+                                <a href="/categoria/alterar/id/<?= $c["id"]?>" class="btn btn-warning">
                                     Alterar
                                 </a>
-                                <a href="#" class="btn btn-danger">
+                                <a href="/categoria/excluir/id/<?= $c["id"]?>" class="btn btn-danger">
                                     Excluir
                                 </a>
                             </td>
@@ -48,7 +48,11 @@
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        let table = new DataTable('#tabela');
+        var table = new DataTable('#tabela', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/2.0.6/i18n/pt-BR.json',
+            },
+        });
     </script>
   </body>
 </html>
